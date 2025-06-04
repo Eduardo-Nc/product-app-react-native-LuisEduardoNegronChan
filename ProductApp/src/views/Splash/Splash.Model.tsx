@@ -11,13 +11,13 @@ export default function useSplashModel() {
     setTimeout(() => {
       navigator.reset({
         index: 0,
-        routes: [{name: 'MainStack'}],
+        routes: [{name: 'UIMainProducts'}],
       });
     }, 3000);
   };
 
   useEffect(() => {
-    // changeToProducts();
+    changeToProducts();
   }, []);
 
   return {};

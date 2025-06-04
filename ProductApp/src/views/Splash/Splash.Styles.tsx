@@ -6,7 +6,7 @@ import {SIZES, COLORS} from '@Utils/constants';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.white,
   },
   splashContainer: {
     flex: 1,
@@ -27,13 +27,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoImg: {
-    height: 100,
+    width: 250,
+    height: 250,
     resizeMode: 'contain',
-    tintColor: COLORS.white,
   },
   txtSlogan: {
     fontWeight: 'bold',
-    color: COLORS.secondary,
+    color: COLORS.primary,
     fontSize: 30,
     marginTop: 20,
   },

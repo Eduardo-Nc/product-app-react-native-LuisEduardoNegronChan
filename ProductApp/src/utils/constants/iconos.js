@@ -8,7 +8,7 @@ export const Close = require("@Assets/icons/close.png");
 export const Menu = require("@Assets/icons/menu.png");
 export const Edit = require("@Assets/icons/edit.png");
 export const Plus = require("@Assets/icons/plus.png");
-
+export const Logo = require("@Assets/icons/wishlist.png");
 
 export default {
     Canasta,
@@ -20,4 +20,5 @@ export default {
     Menu,
     Edit,
     Plus,
+    Logo
 }

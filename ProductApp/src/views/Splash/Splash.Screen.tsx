@@ -25,14 +25,14 @@ const SplashScreen = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar translucent backgroundColor={COLORS.black} />
+      <StatusBar translucent />
       <SafeAreaView style={styles.splashContainer}>
         <View style={styles.logoContainer}>
-          <Image style={styles.logoImg} source={ICONS.Canasta} />
+          <Image style={styles.logoImg} source={ICONS.Logo} />
           <Text style={styles.txtSlogan}>{translate('appName')}</Text>
         </View>
         <View style={styles.ActIndiContainer}>
-          <ActivityIndicator size={'large'} color={COLORS.white} />
+          <ActivityIndicator size={'large'} color={COLORS.primary} />
         </View>
       </SafeAreaView>
     </View>
