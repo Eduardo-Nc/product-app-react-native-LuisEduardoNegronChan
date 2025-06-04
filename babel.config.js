@@ -18,7 +18,7 @@ module.exports = {
           '@Languages': './ProductApp/assets/languages',
           '@Utils': './ProductApp/src/utils',
           '@Assets': './ProductApp/assets',
-          '@Screens': './ProductApp/src/views',
+          '@Views': './ProductApp/src/views',
           '@Components': './ProductApp/src/components',
           '@Navigation': './ProductApp/src/navigation',
           '@Api': './ProductApp/src/api',
