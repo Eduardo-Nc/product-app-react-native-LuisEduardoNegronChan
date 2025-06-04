@@ -3,6 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 //Screens
 import SplashScreen from '@Views/Splash/Splash.Screen';
+import MainProductsScreen from '@Views/Products/MainProducts/MainProducts.Screen';
+import ProductDetailsScreen from '@Views/Products/ProductDetails/ProductDetails.Screen';
+
 
 export const MainStack = () => {
 
@@ -16,6 +19,10 @@ export const MainStack = () => {
 
       {/* Splash */}
       <Stack.Screen name="UISplash" component={SplashScreen} />
+
+      {/* Products */}
+      <Stack.Screen name="UIMainProducts" component={MainProductsScreen} />
+      <Stack.Screen name="UIProductDetails" component={ProductDetailsScreen} />
 
     </Stack.Navigator>
   );
