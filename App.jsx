@@ -13,12 +13,15 @@ import {Provider} from 'react-redux';
 import {store, persistor} from '@Redux/store/store';
 import {PersistGate} from 'redux-persist/integration/react';
 
+//NavContainer
+import NavContainer from '@Navigation/NavContainer.js';
+
 const App = () => {
   return (
     <View style={styles.container}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <></>
+          <NavContainer></NavContainer>
         </PersistGate>
       </Provider>
     </View>
