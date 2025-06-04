@@ -1,0 +1,17 @@
+{
+  "appName": "APP PRODUCTS",
+
+  "general": {
+    "loading": "Cargando...",
+    "goToBack":"Volver"
+  },
+
+  "serverError": {
+    "NoContent": "No se encontraron datos",
+    "InternalError": "Error en el servicio de datos, contactar a soporte de la aplicación"
+  },
+
+   "withoutResults":{
+    "noResultsFound":"No se han encontrado resultados"
+  }
+}
