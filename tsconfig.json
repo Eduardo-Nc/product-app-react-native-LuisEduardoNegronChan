@@ -1,3 +1,18 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "extends": "@react-native/typescript-config/tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@Views/*": ["ProductApp/src/views/*"],
+      "@Redux/*": ["ProductApp/src/redux/*"],
+      "@Languages/*": ["ProductApp/assets/languages/*"],
+      "@Utils/*": ["ProductApp/src/utils/*"],
+      "@Assets": ["ProductApp/assets/*"],
+      "@Components": ["ProductApp/src/components/*"],
+      "@Navigation": ["ProductApp/src/navigation/*"],
+      "@Api/*": ["ProductApp/src/api/*"],
+      "@Services/*": ["ProductApp/src/services/*"],
+    }
+  }
 }
