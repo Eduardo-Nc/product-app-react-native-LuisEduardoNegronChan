@@ -11,6 +11,14 @@
     "InternalError": "Error en el servicio de datos, contactar a soporte de la aplicación"
   },
 
+  "popupMessage":{
+    "errorTitle":"¡Hubo un error!",
+    "errorSubTitle":"Intentar de nuevo",
+    "acceptTitle":"¡Felicidades!",
+    "acceptSubTitle":"La operación se realizó con éxito",
+    "btnAcceptMessage":"Aceptar"
+  },
+
    "withoutResults":{
     "noResultsFound":"No se han encontrado resultados"
   }

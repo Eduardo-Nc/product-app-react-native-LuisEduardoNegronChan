@@ -9,6 +9,9 @@ export const Menu = require("@Assets/icons/menu.png");
 export const Edit = require("@Assets/icons/edit.png");
 export const Plus = require("@Assets/icons/plus.png");
 export const Logo = require("@Assets/icons/wishlist.png");
+export const Error = require("@Assets/lotties/error.json");
+export const Check = require("@Assets/lotties/check.json");
+export const Loading = require("@Assets/lotties/loading.json");
 
 export default {
     Canasta,
@@ -20,5 +23,8 @@ export default {
     Menu,
     Edit,
     Plus,
-    Logo
+    Logo,
+    Error,
+    Check,
+    Loading
 }
