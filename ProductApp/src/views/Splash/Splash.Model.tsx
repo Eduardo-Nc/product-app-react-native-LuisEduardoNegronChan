@@ -1,24 +1,24 @@
-import {useEffect} from 'react';
-
-//Librerias
+import {useEffect, useCallback} from 'react';
 import {useNavigation} from '@react-navigation/core';
 
 export default function useSplashModel() {
-  //Navigation
-  const navigator = useNavigation();
+  const navigation = useNavigation();
 
-  const changeToProducts = () => {
-    setTimeout(() => {
-      navigator.reset({
+  const navigateToProducts = useCallback(() => {
+    const timeoutId = setTimeout(() => {
+      navigation.reset({
         index: 0,
         routes: [{name: 'UIMainProducts'}],
       });
     }, 3000);
-  };
+
+    return () => clearTimeout(timeoutId);
+  }, [navigation]);
 
   useEffect(() => {
-    changeToProducts();
-  }, []);
+    const cleanup = navigateToProducts();
+    return cleanup;
+  }, [navigateToProducts]);
 
   return {};
 }
