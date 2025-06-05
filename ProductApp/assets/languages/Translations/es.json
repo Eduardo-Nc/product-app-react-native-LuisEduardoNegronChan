@@ -8,7 +8,8 @@
 
   "serverError": {
     "NoContent": "No se encontraron datos",
-    "InternalError": "Error en el servicio de datos, contactar a soporte de la aplicación"
+    "InternalError": "Error en el servicio de datos, contactar a soporte de la aplicación",
+    "IDNotFound":"ID no encontrado"
   },
 
   "popupMessage":{

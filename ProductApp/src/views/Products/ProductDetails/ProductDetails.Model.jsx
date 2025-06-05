@@ -32,6 +32,7 @@ export default function useProductDetailsModel({route}) {
   const [product, setProduct] = useState({});
 
   const [isError, setIsError] = useState(false);
+  const [txtError, setTxtError] = useState('');
   const [isVisible, setIsVisible] = useState(false);
 
   //functions
@@ -39,7 +40,6 @@ export default function useProductDetailsModel({route}) {
     setLoading(true);
     getProductById(id)
       .then(res => {
-        console.log(res);
         showMessage({
           message: `${translate('popupMessage.acceptSubTitle')}`,
           type: 'success',
@@ -47,6 +47,9 @@ export default function useProductDetailsModel({route}) {
         setProduct(res);
       })
       .catch(err => {
+        setIsError(true);
+        setTxtError(translate('serverError.IDNotFound'));
+        setIsVisible(true);
         showMessage({
           message: `${translate('serverError.InternalError')}`,
           type: 'danger',
@@ -120,5 +123,6 @@ export default function useProductDetailsModel({route}) {
     isVisible,
     setIsVisible,
     goToBack,
+    txtError,
   };
 }

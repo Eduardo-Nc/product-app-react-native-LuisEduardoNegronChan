@@ -37,6 +37,7 @@ const ProductDetailsScreen = ({route}) => {
     isVisible,
     setIsVisible,
     goToBack,
+    txtError,
   } = useProductDetailsModel({route});
 
   return (
@@ -49,7 +50,7 @@ const ProductDetailsScreen = ({route}) => {
       <SafeAreaView style={styles.mainContainer}>
         <ScrollView>
           <Text style={styles.txtTitle}>{product?.title}</Text>
-          {!loading && (
+          {!loading && !isError && (
             <View style={styles.detailsContainer}>
               <Image style={styles.image} source={{uri: product?.image}} />
               <Text style={styles.txtDescription}>{product?.description}</Text>
@@ -85,7 +86,8 @@ const ProductDetailsScreen = ({route}) => {
         isError={isError}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
-        action={isError ? setIsVisible(false) : goToBack}
+        subtitle={isError ? txtError : null}
+        action={goToBack}
       />
     </View>
   );
