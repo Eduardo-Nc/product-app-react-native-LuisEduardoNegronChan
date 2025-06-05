@@ -47,6 +47,13 @@ export default function useMainProductsModel() {
       });
   };
 
+  const goToDetails = ({id}) => {
+    navigator.navigate('MainStack', {
+      screen: 'UIProductDetails',
+      params: {id},
+    });
+  };
+
   useLayoutEffect(() => {
     findProducts();
   }, []);
@@ -56,5 +63,6 @@ export default function useMainProductsModel() {
     setLoading,
     navigator,
     products,
+    goToDetails,
   };
 }
