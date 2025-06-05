@@ -4,7 +4,7 @@ import { TouchableOpacity, Text, StyleSheet, Image, View } from 'react-native'
 //Constants
 import { SIZES, COLORS, ICONS } from '@Utils/constants';
 
-const ItemProduct = ({ index, item, action, isLeftColumn }) => {
+const ItemProduct = ({ index, item, action, isLeftColumn, formattedPrice }) => {
   const { title,
     price,
     category,
@@ -15,7 +15,7 @@ const ItemProduct = ({ index, item, action, isLeftColumn }) => {
       <Text style={styles.category}>{category}</Text>
       <Image style={styles.image} source={{ uri: image }} />
       <Text style={styles.title} numberOfLines={3} adjustsFontSizeToFit>{title}</Text>
-      <Text style={styles.price}>{price}</Text>
+      <Text style={styles.price}>{formattedPrice(price)}</Text>
       <View style={styles.iconContainer}>
         <Image style={styles.icon} source={ICONS.RightArrow} />
       </View>

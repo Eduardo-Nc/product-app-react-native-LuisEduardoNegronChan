@@ -1,16 +1,32 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, StatusBar } from 'react-native'
+import { View, Text, StyleSheet, Image, StatusBar, TouchableOpacity } from 'react-native'
+
+//Librerias
+import { useNavigation } from '@react-navigation/core';
 
 //Constants
 import { SIZES, COLORS, isAndroid, ICONS } from '@Utils/constants';
 
-const Header = ({ icon, title }) => {
+const Header = ({ icon = "", title = "", goToBack = false }) => {
 
+  //Navigation
+  const navigator = useNavigation();
+
+  const goBack = () => {
+    navigator.goBack()
+  }
 
   return (
     <>
       <StatusBar backgroundColor={COLORS.primary} />
       <View style={styles.container}>
+        {goToBack &&
+          <TouchableOpacity style={styles.backContainer} onPress={() => {
+            goBack()
+          }}>
+            <Image style={styles.iconBack} source={ICONS.LeftArrow} />
+          </TouchableOpacity>
+        }
         <Text style={styles.title}>{title}</Text>
       </View>
     </>
@@ -33,5 +49,18 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: COLORS.secondary,
   },
+  backContainer: {
+    top: 30,
+    left: 20,
+    width: 45,
+    height: 45,
+    position: 'absolute',
+  },
+  iconBack: {
+    width: 15,
+    height: 15,
+    resizeMode: "contain",
+    tintColor: COLORS.white
+  }
 });
 export default Header
