@@ -11,9 +11,12 @@ export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: 'flex-start',
-    paddingHorizontal: 20,
     paddingVertical: 20,
     alignItems: 'flex-start',
+  },
+  scrollView: {
+    flex: 1,
+    paddingHorizontal: 20,
   },
   txtTitle: {
     fontSize: 25,

@@ -48,7 +48,7 @@ const ProductDetailsScreen = ({route}) => {
         goToBack={true}
       />
       <SafeAreaView style={styles.mainContainer}>
-        <ScrollView>
+        <ScrollView style={styles.scrollView}>
           <Text style={styles.txtTitle}>{product?.title}</Text>
           {!loading && !isError && (
             <View style={styles.detailsContainer}>

@@ -37,7 +37,8 @@ const Header = ({ icon = "", title = "", goToBack = false }) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: isAndroid ? 70 : 90,
+    height: isAndroid ? 70 : 100,
+    paddingTop: isAndroid ? 0 : 40,
     backgroundColor: COLORS.primary,
     flexDirection: "row",
     justifyContent: 'center',
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     color: COLORS.secondary,
   },
   backContainer: {
-    top: 30,
+    top: isAndroid ? 30 : 60,
     left: 20,
     width: 45,
     height: 45,
