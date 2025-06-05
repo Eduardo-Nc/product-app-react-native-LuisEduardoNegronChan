@@ -1,4 +1,4 @@
-import {useState, useLayoutEffect} from 'react';
+import {useState, useLayoutEffect, useMemo} from 'react';
 
 //Librerias
 import {useNavigation} from '@react-navigation/core';
@@ -24,6 +24,7 @@ export default function useMainProductsModel() {
 
   //useState
   const [loading, setLoading] = useState(false);
+  const [txtSearch, setTxtSearch] = useState('');
 
   //functions
   const findProducts = () => {
@@ -67,6 +68,14 @@ export default function useMainProductsModel() {
     });
   };
 
+  const filteredProducts = useMemo(() => {
+    if (!txtSearch.trim()) return products;
+
+    return products.filter(product =>
+      product.title?.toLowerCase().includes(txtSearch.toLowerCase()),
+    );
+  }, [txtSearch, products]);
+
   useLayoutEffect(() => {
     findProducts();
   }, []);
@@ -79,5 +88,8 @@ export default function useMainProductsModel() {
     goToDetails,
     formattedPrice,
     goToCreateProduct,
+    txtSearch,
+    setTxtSearch,
+    filteredProducts,
   };
 }

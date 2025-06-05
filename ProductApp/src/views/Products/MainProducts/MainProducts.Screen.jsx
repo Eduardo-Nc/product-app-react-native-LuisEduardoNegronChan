@@ -18,6 +18,7 @@ import Loader from '@Components/Loader/Loader';
 import Header from '@Components/Header/Header';
 import ItemProduct from '@Components/Item/itemProduct';
 import EmptyComponent from '@Components/EmptyComponent/EmptyComponent';
+import Filter from '@Components/Filter/Filter';
 
 //Languages
 import {translate} from '@Languages/I18n';
@@ -33,19 +34,23 @@ const MainProductsScreen = () => {
     goToDetails,
     formattedPrice,
     goToCreateProduct,
+    txtSearch,
+    setTxtSearch,
+    filteredProducts,
   } = useMainProductsModel();
 
   return (
     <View style={styles.container}>
       <Header icon={ICONS.Canasta} title={translate('appName')} />
       <SafeAreaView style={styles.mainContainer}>
+        <Filter txtSearch={txtSearch} setTxtSearch={setTxtSearch} />
         <FlatList
           style={styles.flatList}
           contentContainerStyle={{
             paddingHorizontal: 20,
             paddingTop: 20,
           }}
-          data={loading ? [] : products}
+          data={loading ? [] : filteredProducts}
           numColumns={2}
           keyExtractor={(item, index) =>
             item.id?.toString() || index.toString()
