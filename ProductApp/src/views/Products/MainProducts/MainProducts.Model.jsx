@@ -64,7 +64,8 @@ export default function useMainProductsModel() {
 
   const goToCreateProduct = () => {
     navigator.navigate('MainStack', {
-      screen: 'UICreateProduct',
+      screen: 'UICreateEditProduct',
+      params: {id: null, isCreate: true},
     });
   };
 
@@ -84,7 +85,6 @@ export default function useMainProductsModel() {
     loading,
     setLoading,
     navigator,
-    products,
     goToDetails,
     formattedPrice,
     goToCreateProduct,

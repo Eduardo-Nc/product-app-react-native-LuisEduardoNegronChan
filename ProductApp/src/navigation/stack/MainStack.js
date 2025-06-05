@@ -5,9 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from '@Views/Splash/Splash.Screen';
 import MainProductsScreen from '@Views/Products/MainProducts/MainProducts.Screen';
 import ProductDetailsScreen from '@Views/Products/ProductDetails/ProductDetails.Screen';
+import CreateEditProductScreen from '@Views/Products/CreateEditProduct/CreateEditProduct.Screen';
 
-// UICreateProduct
-// UIUpdateProduct
 
 export const MainStack = () => {
 
@@ -25,6 +24,8 @@ export const MainStack = () => {
       {/* Products */}
       <Stack.Screen name="UIMainProducts" component={MainProductsScreen} />
       <Stack.Screen name="UIProductDetails" component={ProductDetailsScreen} />
+      <Stack.Screen name="UICreateEditProduct" component={CreateEditProductScreen} />
+
 
     </Stack.Navigator>
   );

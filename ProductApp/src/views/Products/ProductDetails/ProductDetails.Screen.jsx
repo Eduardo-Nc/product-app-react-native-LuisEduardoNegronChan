@@ -31,7 +31,7 @@ const ProductDetailsScreen = ({route}) => {
     setLoading,
     formattedPrice,
     product,
-    goToCreateProduct,
+    goToUpdateProduct,
     deleteProduct,
     isError,
     isVisible,
@@ -60,7 +60,7 @@ const ProductDetailsScreen = ({route}) => {
               <TouchableOpacity
                 style={styles.containerAdd}
                 onPress={() => {
-                  goToCreateProduct('UIUpdateProduct');
+                  goToUpdateProduct();
                 }}>
                 <Text style={styles.txtAdd}>
                   {translate('products.update')}

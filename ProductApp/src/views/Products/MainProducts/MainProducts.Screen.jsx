@@ -30,7 +30,6 @@ const MainProductsScreen = () => {
   const {
     loading,
     setLoading,
-    products,
     goToDetails,
     formattedPrice,
     goToCreateProduct,

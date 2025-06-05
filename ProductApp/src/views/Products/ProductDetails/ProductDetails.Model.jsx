@@ -64,10 +64,10 @@ export default function useProductDetailsModel({route}) {
     }).format(parseFloat(price));
   };
 
-  const goToCreateProduct = screen => {
+  const goToUpdateProduct = () => {
     navigator.navigate('MainStack', {
-      screen: screen,
-      params: product,
+      screen: 'UICreateEditProduct',
+      params: {id: id, isCreate: false},
     });
   };
 
@@ -115,7 +115,7 @@ export default function useProductDetailsModel({route}) {
     setLoading,
     product,
     formattedPrice,
-    goToCreateProduct,
+    goToUpdateProduct,
     deleteProduct,
     isError,
     isVisible,
