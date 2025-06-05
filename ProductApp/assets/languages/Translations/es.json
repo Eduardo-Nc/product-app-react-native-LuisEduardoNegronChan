@@ -30,6 +30,7 @@
   },
 
    "Modal": {
+    "warning": "Advertencia",
     "aceptar": "Aceptar",
     "cancelar": "Cancelar"
   },

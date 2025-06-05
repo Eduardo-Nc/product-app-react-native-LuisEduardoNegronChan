@@ -1,8 +1,10 @@
 import {useState, useLayoutEffect} from 'react';
+import {Alert} from 'react-native';
 
 //Librerias
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {showMessage} from 'react-native-flash-message';
+import {useNavigation} from '@react-navigation/core';
 
 //Languages
 import {translate} from '@Languages/I18n';
@@ -18,12 +20,19 @@ export default function useProductDetailsModel({route}) {
   const {params} = route;
   const {id} = params;
 
+  //Navigation
+  const navigator = useNavigation();
+
   //Redux
   const dispatch = useDispatch();
+  const {products} = useSelector(state => state.products);
 
   //useState
   const [loading, setLoading] = useState(false);
   const [product, setProduct] = useState({});
+
+  const [isError, setIsError] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   //functions
   const findProduct = () => {
@@ -55,9 +64,62 @@ export default function useProductDetailsModel({route}) {
     }).format(parseFloat(price));
   };
 
+  const goToCreateProduct = screen => {
+    navigator.navigate('MainStack', {
+      screen: screen,
+      params: product,
+    });
+  };
+
+  const deleteProduct = () => {
+    Alert.alert(
+      translate('Modal.warning'),
+      translate('messageGeneral.confirmDelete'),
+      [
+        {
+          text: translate('Modal.cancelar'),
+          style: 'cancel',
+          onPress: () => {},
+        },
+        {
+          text: translate('Modal.aceptar'),
+          onPress: async () => {
+            simulateElimination();
+          },
+        },
+      ],
+      {cancelable: true},
+    );
+  };
+
+  const simulateElimination = () => {
+    const copyProducts = products;
+    console.log('copyProducts ', copyProducts);
+    const filterProduct = copyProducts.filter(item => item.id !== id);
+    dispatch(setProductsData(filterProduct));
+    setIsError(false);
+    setIsVisible(true);
+  };
+
+  const goToBack = () => {
+    setIsVisible(false);
+    navigator.goBack();
+  };
+
   useLayoutEffect(() => {
     findProduct();
   }, []);
 
-  return {loading, setLoading, product, formattedPrice};
+  return {
+    loading,
+    setLoading,
+    product,
+    formattedPrice,
+    goToCreateProduct,
+    deleteProduct,
+    isError,
+    isVisible,
+    setIsVisible,
+    goToBack,
+  };
 }
