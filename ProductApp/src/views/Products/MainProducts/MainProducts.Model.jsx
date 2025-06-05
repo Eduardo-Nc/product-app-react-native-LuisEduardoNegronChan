@@ -65,7 +65,7 @@ export default function useMainProductsModel() {
   const goToCreateProduct = () => {
     navigator.navigate('MainStack', {
       screen: 'UICreateEditProduct',
-      params: {id: null, isCreate: true},
+      params: {data: null, edit: null, isCreate: true},
     });
   };
 

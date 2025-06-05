@@ -67,7 +67,7 @@ export default function useProductDetailsModel({route}) {
   const goToUpdateProduct = () => {
     navigator.navigate('MainStack', {
       screen: 'UICreateEditProduct',
-      params: {id: id, isCreate: false},
+      params: {data: product, edit: setProduct, isCreate: false},
     });
   };
 
@@ -94,7 +94,6 @@ export default function useProductDetailsModel({route}) {
 
   const simulateElimination = () => {
     const copyProducts = products;
-    console.log('copyProducts ', copyProducts);
     const filterProduct = copyProducts.filter(item => item.id !== id);
     dispatch(setProductsData(filterProduct));
     setIsError(false);
