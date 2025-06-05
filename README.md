@@ -21,8 +21,14 @@ Este desarrollo incluye una buen experiencia de usuario con validaciones en form
 ## Clonación e instalación
 
 -Realizar el clonado desde la url: https://github.com/Eduardo-Nc/product-app-react-native-LuisEduardoNegronChan.git
--Ejecutar el comando: Yarn install o bien npm install
+-Ejecutar el comando: yarn install o bien npm install
 -Ejecutar el comando: npx react-native run-android (android) o npx react-native run-ios (iOS)
+
+---
+
+## Ejecución de pruebas
+
+-Ejecutar el comando: yarn test
 
 ---
 

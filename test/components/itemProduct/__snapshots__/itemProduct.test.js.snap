@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Prueba del componente TxtInput Coincide con el snapshot visual 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "borderColor": "#000000",
+      "borderRadius": 10,
+      "borderWidth": 0.3,
+      "height": 230,
+      "justifyContent": "center",
+      "marginBottom": 10,
+      "marginLeft": "2%",
+      "opacity": 1,
+      "paddingHorizontal": 25,
+      "width": "46%",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 12,
+        "fontWeight": "600",
+        "marginBottom": 5,
+      }
+    }
+  >
+    Electrónica
+  </Text>
+  <Image
+    source={
+      {
+        "uri": "https://example.com/product.jpg",
+      }
+    }
+    style={
+      {
+        "height": 80,
+        "overflow": "hidden",
+        "resizeMode": "contain",
+        "width": 80,
+      }
+    }
+  />
+  <Text
+    adjustsFontSizeToFit={true}
+    numberOfLines={3}
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 14,
+        "fontWeight": "400",
+        "marginTop": 5,
+        "textAlign": "left",
+      }
+    }
+  >
+    Producto de prueba
+  </Text>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "500",
+      }
+    }
+  >
+    $199.99
+  </Text>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#282d36",
+        "borderRadius": 100,
+        "height": 20,
+        "justifyContent": "center",
+        "marginTop": 10,
+        "overflow": "hidden",
+        "width": 20,
+      }
+    }
+  >
+    <Image
+      source={
+        {
+          "testUri": "../../../ProductApp/assets/icons/rightArrow.png",
+        }
+      }
+      style={
+        {
+          "height": 8,
+          "resizeMode": "contain",
+          "tintColor": "#FFFFFF",
+          "width": 8,
+        }
+      }
+    />
+  </View>
+</View>
+`;

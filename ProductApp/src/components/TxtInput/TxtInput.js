@@ -8,7 +8,7 @@ const TxtInput = ({ field = "", value = "", title = "", type = "default", placeh
 
   return (
     <View style={styles.container}>
-      <Text style={styles.txtTitleInputs}>{title}</Text>
+      <Text testID="txtTextInput" style={styles.txtTitleInputs}>{title}</Text>
       <TextInput
         editable={isEditable}
         placeholder={placeholder}

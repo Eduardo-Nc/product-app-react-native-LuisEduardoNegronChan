@@ -2,12 +2,21 @@
   "name": "productApp",
   "version": "0.0.1",
   "private": true,
+   "jest": {
+    "preset": "react-native",
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "setupFiles": [
+      
+    ]
+  },
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.1.2",
@@ -38,6 +47,8 @@
     "@react-native/eslint-config": "0.79.3",
     "@react-native/metro-config": "0.79.3",
     "@react-native/typescript-config": "0.79.3",
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^12.1.2",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.0.0",
     "@types/react-test-renderer": "^19.0.0",
