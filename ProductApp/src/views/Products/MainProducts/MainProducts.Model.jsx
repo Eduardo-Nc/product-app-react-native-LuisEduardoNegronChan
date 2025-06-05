@@ -61,6 +61,12 @@ export default function useMainProductsModel() {
     }).format(parseFloat(price));
   };
 
+  const goToCreateProduct = () => {
+    navigator.navigate('MainStack', {
+      screen: 'UICreateProduct',
+    });
+  };
+
   useLayoutEffect(() => {
     findProducts();
   }, []);
@@ -72,5 +78,6 @@ export default function useMainProductsModel() {
     products,
     goToDetails,
     formattedPrice,
+    goToCreateProduct,
   };
 }

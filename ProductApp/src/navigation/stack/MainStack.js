@@ -6,6 +6,8 @@ import SplashScreen from '@Views/Splash/Splash.Screen';
 import MainProductsScreen from '@Views/Products/MainProducts/MainProducts.Screen';
 import ProductDetailsScreen from '@Views/Products/ProductDetails/ProductDetails.Screen';
 
+// UICreateProduct
+// UIUpdateProduct
 
 export const MainStack = () => {
 

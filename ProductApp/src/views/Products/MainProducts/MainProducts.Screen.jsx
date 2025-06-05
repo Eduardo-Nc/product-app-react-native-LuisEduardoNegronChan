@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, SafeAreaView, FlatList} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  FlatList,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
 
 //Model
 import useMainProductsModel from './MainProducts.Model';
@@ -11,6 +17,7 @@ import {styles} from './MainProducts.Styles';
 import Loader from '@Components/Loader/Loader';
 import Header from '@Components/Header/Header';
 import ItemProduct from '@Components/Item/itemProduct';
+import EmptyComponent from '@Components/EmptyComponent/EmptyComponent';
 
 //Languages
 import {translate} from '@Languages/I18n';
@@ -19,8 +26,14 @@ import {translate} from '@Languages/I18n';
 import {ICONS} from '@Utils/constants';
 
 const MainProductsScreen = () => {
-  const {loading, setLoading, products, goToDetails, formattedPrice} =
-    useMainProductsModel();
+  const {
+    loading,
+    setLoading,
+    products,
+    goToDetails,
+    formattedPrice,
+    goToCreateProduct,
+  } = useMainProductsModel();
 
   return (
     <View style={styles.container}>
@@ -32,7 +45,7 @@ const MainProductsScreen = () => {
             paddingHorizontal: 20,
             paddingTop: 20,
           }}
-          data={products ? products : []}
+          data={loading ? [] : products}
           numColumns={2}
           keyExtractor={(item, index) =>
             item.id?.toString() || index.toString()
@@ -49,7 +62,15 @@ const MainProductsScreen = () => {
               />
             );
           }}
+          ListEmptyComponent={EmptyComponent}
         />
+        <TouchableOpacity
+          style={styles.containerAddProduct}
+          onPress={() => {
+            goToCreateProduct();
+          }}>
+          <Image style={styles.btnAddProduct} source={ICONS.Plus} />
+        </TouchableOpacity>
       </SafeAreaView>
       <Loader visible={loading} setVisible={setLoading} />
     </View>
