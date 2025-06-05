@@ -19,7 +19,8 @@ import {translate} from '@Languages/I18n';
 import {ICONS} from '@Utils/constants';
 
 const MainProductsScreen = () => {
-  const {loading, setLoading, products, goToDetails} = useMainProductsModel();
+  const {loading, setLoading, products, goToDetails, formattedPrice} =
+    useMainProductsModel();
 
   return (
     <View style={styles.container}>
@@ -44,6 +45,7 @@ const MainProductsScreen = () => {
                 item={item}
                 action={goToDetails}
                 isLeftColumn={isLeftColumn}
+                formattedPrice={formattedPrice}
               />
             );
           }}

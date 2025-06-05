@@ -54,6 +54,13 @@ export default function useMainProductsModel() {
     });
   };
 
+  const formattedPrice = price => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(parseFloat(price));
+  };
+
   useLayoutEffect(() => {
     findProducts();
   }, []);
@@ -64,5 +71,6 @@ export default function useMainProductsModel() {
     navigator,
     products,
     goToDetails,
+    formattedPrice,
   };
 }
