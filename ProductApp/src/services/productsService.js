@@ -12,10 +12,10 @@ export const createProduct = (data) => {
   return apiClient.post('/products', data);
 };
 
-export const updateProduct = (data) => {
-  return apiClient.put('/products', data);
+export const updateProduct = (id, data) => {
+  return apiClient.put(`/products/${id}`, data);
 };
 
-export const daleteProduct = (data) => {
-  return apiClient.del('/products', data);
+export const daleteProduct = (id) => {
+  return apiClient.del(`/products/${id}`);
 };

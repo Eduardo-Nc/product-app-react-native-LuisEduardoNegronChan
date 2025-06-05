@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 //Librerias
 import {useNavigation} from '@react-navigation/core';
@@ -9,7 +9,10 @@ import {showMessage} from 'react-native-flash-message';
 import {translate} from '@Languages/I18n';
 
 //Redux
-import {setProductsData} from '../redux/actions/index';
+import {setProductsData, setDatailsProduct} from '../redux/actions/index';
+
+//Services
+import {createProduct, updateProduct} from '@Services/productsService';
 
 const initialData = {
   title: '',
@@ -21,11 +24,11 @@ const initialData = {
 export default function useCreateEditProductModel({route}) {
   //Params
   const {params} = route;
-  const {data, edit, isCreate} = params;
+  const {data, isCreate} = params;
 
   //Redux
   const dispatch = useDispatch();
-  const {products} = useSelector(state => state.products);
+  const {products, selectedProduct} = useSelector(state => state.products);
 
   //Navigation
   const navigator = useNavigation();
@@ -66,6 +69,7 @@ export default function useCreateEditProductModel({route}) {
     }
 
     if (isCreate) {
+      setLoading(true);
       const newId =
         products.length > 0 ? Math.max(...products.map(p => p.id || 0)) + 1 : 1;
 
@@ -76,14 +80,36 @@ export default function useCreateEditProductModel({route}) {
         rating: {rate: 0, count: 0},
       };
 
-      dispatch(setProductsData([...products, newProduct]));
-
-      setIsError(false);
-      setIsVisible(true);
+      createProduct(newProduct)
+        .then(res => {
+          dispatch(setProductsData([...products, newProduct]));
+          setIsError(false);
+          setIsVisible(true);
+        })
+        .catch(err => {
+          setIsError(true);
+          setIsVisible(true);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     } else {
-      edit(productData);
-      setIsError(false);
-      setIsVisible(true);
+      setLoading(true);
+      updateProduct(productData?.id, productData)
+        .then(res => {
+          dispatch(setDatailsProduct(res));
+          console.log(res);
+          setIsError(false);
+          setIsVisible(true);
+        })
+        .catch(err => {
+          console.log('err update ', err);
+          setIsError(true);
+          setIsVisible(true);
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     }
   };
 

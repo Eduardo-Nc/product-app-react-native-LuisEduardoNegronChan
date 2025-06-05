@@ -2,6 +2,7 @@ import { types } from '@Redux/types'
 
 const initialState = {
   products: {},
+  selectedProduct: {},
 }
 
 export const products = (state = initialState, action) => {
@@ -10,6 +11,11 @@ export const products = (state = initialState, action) => {
       return {
         ...state,
         products: action.data,
+      }
+    case types.SAVE_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: action.data,
       }
     case types.DELETE_ALL_PRODUCTS: {
       return initialState

@@ -1,4 +1,4 @@
-import {useState, useLayoutEffect} from 'react';
+import {useState, useLayoutEffect, useEffect} from 'react';
 import {Alert} from 'react-native';
 
 //Librerias
@@ -10,10 +10,10 @@ import {useNavigation} from '@react-navigation/core';
 import {translate} from '@Languages/I18n';
 
 //Services
-import {getProductById} from '@Services/productsService';
+import {getProductById, daleteProduct} from '@Services/productsService';
 
 //Redux
-import {setProductsData} from '../redux/actions/index';
+import {setProductsData, setDatailsProduct} from '../redux/actions/index';
 
 export default function useProductDetailsModel({route}) {
   //Params
@@ -25,7 +25,7 @@ export default function useProductDetailsModel({route}) {
 
   //Redux
   const dispatch = useDispatch();
-  const {products} = useSelector(state => state.products);
+  const {products, selectedProduct} = useSelector(state => state.products);
 
   //useState
   const [loading, setLoading] = useState(false);
@@ -70,7 +70,7 @@ export default function useProductDetailsModel({route}) {
   const goToUpdateProduct = () => {
     navigator.navigate('MainStack', {
       screen: 'UICreateEditProduct',
-      params: {data: product, edit: setProduct, isCreate: false},
+      params: {data: product, isCreate: false},
     });
   };
 
@@ -87,12 +87,33 @@ export default function useProductDetailsModel({route}) {
         {
           text: translate('Modal.aceptar'),
           onPress: async () => {
-            simulateElimination();
+            dalProduct();
           },
         },
       ],
       {cancelable: true},
     );
+  };
+
+  const dalProduct = () => {
+    setLoading(true);
+    daleteProduct(id)
+      .then(res => {
+        console.log('res delete ==> ', res);
+        simulateElimination();
+      })
+      .catch(err => {
+        setIsError(true);
+        setTxtError(translate('serverError.InternalError'));
+        setIsVisible(true);
+        showMessage({
+          message: `${translate('serverError.InternalError')}`,
+          type: 'danger',
+        });
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const simulateElimination = () => {
@@ -107,6 +128,14 @@ export default function useProductDetailsModel({route}) {
     setIsVisible(false);
     navigator.goBack();
   };
+
+  useEffect(() => {
+    if (selectedProduct && id) {
+      setProduct(selectedProduct);
+    } else {
+      dispatch(setDatailsProduct({}));
+    }
+  }, [selectedProduct]);
 
   useLayoutEffect(() => {
     findProduct();

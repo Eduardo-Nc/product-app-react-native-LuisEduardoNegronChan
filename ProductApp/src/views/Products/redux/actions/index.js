@@ -5,6 +5,11 @@ export const setProductsData = data => ({
     data,
 })
 
+export const setDatailsProduct = data => ({
+    type: types.SAVE_PRODUCT,
+    data,
+})
+
 export const setInitialData = () => ({
     type: types.DELETE_ALL_PRODUCTS,
 })

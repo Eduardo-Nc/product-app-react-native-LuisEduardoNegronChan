@@ -98,7 +98,7 @@ const CreateEditProductScreen = ({route}) => {
         isError={isError}
         isVisible={isVisible}
         setIsVisible={setIsVisible}
-        action={isError ? setIsVisible(false) : goToBack}
+        action={goToBack}
       />
     </View>
   );
