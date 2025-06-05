@@ -21,5 +21,21 @@
 
    "withoutResults":{
     "noResultsFound":"No se han encontrado resultados"
+  },
+
+  "products":{
+    "add":"Crear Producto",
+    "update":"Actualizar Producto",
+    "delete":"Eliminar Producto"
+  },
+
+   "Modal": {
+    "aceptar": "Aceptar",
+    "cancelar": "Cancelar"
+  },
+
+    "messageGeneral": {
+      "confirmDelete":"¿Realmente desea eliminar este producto?",
+      "confirmUpdate":"¿Realmente deseas actualizar este producto?"
   }
 }
